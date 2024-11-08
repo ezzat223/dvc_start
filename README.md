@@ -9,4 +9,4 @@
 >dvc config core.autostage true
 
 - Back to an old version:
->
+>git checkout <commit-id>   # get it from >git log
