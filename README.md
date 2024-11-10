@@ -64,5 +64,7 @@
 ## Integrate with DagsHub
 >pip install dagshub --upgrade
 >dagshub login
+>git remote add dagshub https://dagshub.com/ezzat223/my-first-repo.git 
+>dagshub setup dvc
 >dagshub upload ezzat223/my-first-repo data/ data/
 >git pull
