@@ -55,10 +55,14 @@
 - pulls the data but doesn't places it in the cwd or track it
 >dvc fetch
 
-
-
 - Lists files and directories in a remote or a DVC repository:
 >dvc list <url_or_path>
 
 - Checks the DVC environment and reports any potential issues:
 >dvc doctor
+
+## Integrate with DagsHub
+>pip install dagshub --upgrade
+>dagshub login
+>dagshub upload ezzat223/my-first-repo data/ data/
+>git pull
