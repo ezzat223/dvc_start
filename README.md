@@ -18,12 +18,47 @@
 - Remote repo (eg: local-file, s3-bucket...):
 >dvc remote add -d <remote-name> <remote-url-or-path>
 
-## dvc.yaml
-- It's like a pipeline file.
+- Moves a tracked file or directory to a new location while keeping the history:
+>dvc move <old_path> <new_path>
+
+## dvc.yaml Pipeline
 - Has a `dvc.lock` state like terraform, it's a replacement for the `data.csv.dvc` file.
+- Reproduces the pipeline (steps) based on changes to dependencies.
 >dvc repro
+
+- Reproduce a specific stage:
+>dvc repro <stage-name>
+
+- Runs an experiment, potentially with parameter or config changes:
+>dvc exp run -S param1=100 -S param2=0.1
+
+
 - You can push content of `outs` files to the remote:
 >dvc push
 
+- Shows changes in parameters used by your pipeline stages.
+>dvc params diff
+
+- Shows the latest metrics from a project (requires metrics files to be defined in DVC files):
+>dvc metrics show
+
+- Generates and displays plots from the tracked metrics:
+>dvc plots show
+
 ## Pull data or Pipeline steps
+- pulls the data and places it in the cwd But doesn't track it
 >dvc pull
+
+- pulls the data and places it in the cwd and keeps on tracking it
+>dvc import
+
+- pulls the data but doesn't places it in the cwd or track it
+>dvc fetch
+
+
+
+- Lists files and directories in a remote or a DVC repository:
+>dvc list <url_or_path>
+
+- Checks the DVC environment and reports any potential issues:
+>dvc doctor
